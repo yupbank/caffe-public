@@ -1,6 +1,6 @@
 function [scores, layers] = matcaffe_demo(im, use_gpu)
 % scores = matcaffe_demo(im, use_gpu)
-% 
+%
 % Demo of the matlab wrapper using the ILSVRC network.
 %
 % input
@@ -21,8 +21,8 @@ function [scores, layers] = matcaffe_demo(im, use_gpu)
 
 % init caffe network (spews logging info)
 if caffe('is_initialized') == 0
-  model_def_file = '../../examples/imagenet_deploy.prototxt';
-  model_file = '/work5/rbg/caffe_data/caffe_imagenet_train_iter_310000';
+  model_def_file = '../../models/imagenet.prototxt';
+  model_file = '../../models/caffe_reference_imagenet_model';
   if exist(model_file, 'file') == 0
     % NOTE: you'll have to get the pre-trained ILSVRC network
     error('You need a network model file');

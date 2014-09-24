@@ -77,7 +77,7 @@ cv::Mat ReadImageToCVMat(const string& filename,
     return cv_img_origin;
   }
   if (height > 0 && width > 0) {
-    cv::resize(cv_img_origin, cv_img, cv::Size(height, width));
+    cv::resize(cv_img_origin, cv_img, cv::Size(width, height));
   } else {
     cv_img = cv_img_origin;
   }

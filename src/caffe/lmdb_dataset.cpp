@@ -54,6 +54,12 @@ bool LmdbDataset<K, V, KCoder, VCoder>::open(const string& filename,
     return false;
   }
 
+  retval = mdb_env_set_maxreaders(env_, 256);
+  if (MDB_SUCCESS != retval) {
+    LOG(ERROR) << "mdb_env_set_maxreaders failed " << mdb_strerror(retval);
+    return false;
+  }
+
   int flag1 = 0;
   int flag2 = 0;
   if (mode == Base::ReadOnly) {
